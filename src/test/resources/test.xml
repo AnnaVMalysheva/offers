@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE yml_catalog SYSTEM "shops.dtd">
+<yml_catalog date="2016-11-19 07:35">
+    <shop>
+        <currencies>
+            <currency id="RUR"/>
+            <currency id="USD"/>
+            <currency id="EUR"/>
+        </currencies>
+        <categories>
+
+            <category id="10102">amazon test items</category>
+            <category id="10103">Матрешки</category>
+            <category id="10101">ebay test items</category>
+            <category id="10104">Тест категория</category>
+            <category id="10105">1</category>
+            <category id="10106">2</category>
+            <category id="10107">3</category>
+            <category id="10108">4car</category>
+        </categories>
+
+        <offers>
+
+            <offer id="1234567890_01" available="false" group_id="1234567890">
+                <price>1236</price>
+                <currencyId>RUB</currencyId>
+                <categoryId>10103</categoryId>
+                <name>Товары - 2 шт - первый</name>
+                <picture>http://soviet.market/upload/img/orient/720-580/DB05001T.jpg</picture>
+                <description>опсиание123
+
+
+                    йцуйцу</description>
+                <param name="свойство">01</param>
+            </offer>
+
+            <offer id="1234567890_02" available="false" group_id="1234567890">
+                <price>1235</price>
+                <currencyId>RUB</currencyId>
+                <categoryId>10103</categoryId>
+                <name>Товары - 2 шт - второй</name>
+                <picture>http://soviet.market/upload/img/orient/720-580/DB05001T.jpg</picture>
+                <description>опсиание
+
+                </description>
+                <param name="свойство">02</param>
+            </offer>
+
+            <offer id="28876" available="false" group_id="28876">
+                <price>12</price>
+                <currencyId>USD</currencyId>
+                <categoryId>10102</categoryId>
+                <picture>http://www.splav.ru/img/g20110316171648493307t3n2.jpg</picture>
+
+                <stock>1</stock>
+                <name>Russian Summer camo cap M2 tarpaulin Tibet 58</name>
+                <description></description>
+                <param name="Size Type">Regular</param>
+                <param name="Size">58</param>
+                <param name="Color">Multicolor</param>
+                <param name="Style">Sport</param>
+                <param name="Brand">KGB</param>
+                <param name="Glass"></param>
+                <param name="Display"></param>
+                <param name="Band Material"></param>
+                <param name="Movement"></param>
+                <param name="UPC">4022519986459</param>
+                <param name="Dial Color"></param>
+                <param name="MPN"></param>
+                <param name="Water Resistance"></param>
+                <param name="Diameter"></param>
+                <param name="Thickness"></param>
+                <param name="Water Resistance"></param>
+                <param name="Warranty"></param>
+                <param name="Diver Watch"></param>
+                <param name="Altimeter"></param>
+                <param name="Compass"></param>
+                <param name="Stopwatch"></param>
+                <param name="Alarm"></param>
+                <param name="Thermometer"></param>
+                <param name="Chronograph"></param>
+                <param name="Shock Resistance"></param>
+            </offer>
+
+
+
+            <offer id="10003" available="false">
+                <price>7,89</price>
+                <currencyId>USD</currencyId>
+                <categoryId>10102</categoryId>
+                <picture>http://i.ebayimg.com/images/g/yQEAAOSwgmJXyyEO/s-l500.jpg</picture>
+                <picture>http://i.ebayimg.com/images/g/~XYAAOSwFdtXyyER/s-l500.jpg</picture>
+                <name>Original Mobile Phone Battery Lenovo BL214 A300T A269I A208t A218t A269 A316I</name>
+                <description></description>
+                <param name="EAN">840398104924</param>
+                <param name="Brand">Lenovo</param>
+                <param name="Емкость/вместимость">1300mAh</param>
+                <param name="Country/Region of Manufacture">China</param>
+            </offer>
+
+            <offer id="10004" available="false">
+                <price>9.50</price>
+                <currencyId>USD</currencyId>
+                <categoryId>10102</categoryId>
+                <picture>http://www.icover.ru/upload/resize_cache/iblock/4fa/568_343_1/4fa0b97de5b1f4b47d511e35690bdded.jpg</picture>
+                <name>Cable (flat) HDMI-HDMI V 1.3 gold-plated contacts. Length: 2.5 m.</name>
+                <description>
+                    Артикул Наименование
+                    Описание    Категория 1 Категория 2 Категория 3 Фильтр 4    Фильтр 5    Фильтр 6    Производитель   Брэнд   Сайт    Страна происхождения    штрихкод    Вес Объем
+                    HQSS5554/2.5
+                    Кабель (плоский) HDMI-HDMI V 1.3 позолоченные контакты. Длина: 2.5 м.   Кабель (плоский) HDMI-HDMI V 1.3 позолоченные контакты. Длина: 2.5 м.   Аудио, Видео, ТВ    Кабели и переходники    HDMI    HDMI-HDMI   V 1.3   2,5 м   Nedis   HQ  www.nedis.com   КИТАЙ   5412810090150   0,368   0,00406
+                </description>
+                <param name="EAN">5412810090150</param>
+                <param name="Brand">HQSS</param>
+                <stock>1</stock>
+            </offer>
+
+            <offer available="false" id="28876">
+                <price>6999</price>
+                <currencyId>RUR</currencyId>
+                <categoryId>10103</categoryId>
+                <picture>https://static-eu.insales.ru/images/products/1/304/97370416/casio-ef-539d-1a2.jpg</picture>
+                <picture>https://static-eu.insales.ru/images/products/1/303/97370415/casio-ef-539d-1a2_2.jpg</picture>
+                <picture>https://static-eu.insales.ru/images/products/1/300/97370412/ef-539d-1a9-2-1000x1000.jpg</picture>
+                <picture>https://static-eu.insales.ru/images/products/1/302/97370414/1732934-2.jpg</picture>
+                <picture>https://static-eu.insales.ru/images/products/1/299/97370411/casio-edifice-chronograph-ef-539d-1a2vef_86042002_m.jpg</picture>
+                <picture>https://static-eu.insales.ru/images/products/1/301/97370413/1732934-3.jpg</picture>
+                <picture>http://static-eu.insales.ru/files/1/5778/1840786/original/edifice-box-bag.jpg</picture>
+
+                <name>Casio Edifice EF-539D-1A2</name>
+                <vendor>Casio</vendor>
+                <vendorCode>EF-539D-1A2</vendorCode>
+                <description>
+                    Casio Edifice EF-539D-1A2 / EF-539D-1A2ER - brand new genuine wristwatch
+                </description>
+                <param name="Brand">Casio</param>
+                <param name="Collection">Edifice</param>
+                <param name="UPC">4971850910336</param>
+            </offer>
+
+        </offers>
+    </shop>
+</yml_catalog>
