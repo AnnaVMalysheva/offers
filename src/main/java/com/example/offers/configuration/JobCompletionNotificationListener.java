@@ -29,7 +29,6 @@ public class JobCompletionNotificationListener extends JobExecutionListenerSuppo
     @Autowired
     ParamRepository paramRepository;
 
-    @Transactional
     @Override
     public void afterJob(JobExecution jobExecution) {
         if (jobExecution.getStatus() == BatchStatus.COMPLETED) {

@@ -16,7 +16,6 @@ import java.util.List;
 @Slf4j
 public class OfferItemWriter implements ItemWriter<Offer> {
 
-
         @Autowired
         OfferRepository offerRepository;
 
@@ -27,7 +26,6 @@ public class OfferItemWriter implements ItemWriter<Offer> {
         ParamRepository paramRepository;
 
 
-        @Transactional
         @Override
         public void write(List<? extends Offer> items) throws Exception {
             for (Offer offer : items) {

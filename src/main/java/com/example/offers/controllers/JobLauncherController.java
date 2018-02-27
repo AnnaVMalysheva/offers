@@ -3,7 +3,6 @@ package com.example.offers.controllers;
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.JobParametersBuilder;
 import org.springframework.batch.core.launch.JobLauncher;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,11 +14,14 @@ import java.util.Date;
 @RestController
 public class JobLauncherController {
 
-    @Autowired
-    JobLauncher jobLauncher;
+    private JobLauncher jobLauncher;
 
-    @Autowired
-    Job importOfferJob;
+    private Job importOfferJob;
+
+    public JobLauncherController(JobLauncher jobLauncher, Job importOfferJob) {
+        this.jobLauncher = jobLauncher;
+        this.importOfferJob = importOfferJob;
+    }
 
     @GetMapping("/jobLauncher")
     public ResponseEntity<Object> handle(@RequestParam("fileurl") String fileUrl) throws Exception{

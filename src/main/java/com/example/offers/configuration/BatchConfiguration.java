@@ -11,7 +11,6 @@ import org.springframework.batch.core.configuration.annotation.StepScope;
 import org.springframework.batch.core.launch.support.RunIdIncrementer;
 import org.springframework.batch.item.ItemStreamReader;
 import org.springframework.batch.item.xml.StaxEventItemReader;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -22,13 +21,19 @@ import org.springframework.oxm.jaxb.Jaxb2Marshaller;
 @EnableBatchProcessing
 public class BatchConfiguration {
 
-    @Autowired
-    public JobBuilderFactory jobBuilderFactory;
 
-    @Autowired
-    public StepBuilderFactory stepBuilderFactory;
+    private JobBuilderFactory jobBuilderFactory;
+
+    private StepBuilderFactory stepBuilderFactory;
+
 
     private static final String OVERRIDDEN_BY_EXPRESSION = null;
+
+    public BatchConfiguration(JobBuilderFactory jobBuilderFactory, StepBuilderFactory stepBuilderFactory) {
+        this.jobBuilderFactory = jobBuilderFactory;
+        this.stepBuilderFactory = stepBuilderFactory;
+    }
+
 
     @Bean
     @StepScope
@@ -58,7 +63,9 @@ public class BatchConfiguration {
     public Job importOfferJob(JobCompletionNotificationListener listener) {
         return jobBuilderFactory.get("importOfferJob")
                 .incrementer(new RunIdIncrementer())
-                .listener(listener).start(step1())
+                .listener(listener)
+                .flow(step1())
+                .end()
                 .build();
     }
 
