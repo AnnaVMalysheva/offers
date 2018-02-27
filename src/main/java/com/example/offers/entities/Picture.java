@@ -10,7 +10,7 @@ import javax.persistence.*;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode(exclude="person")
+@EqualsAndHashCode(exclude="offer")
 @Entity
 @Table(name="picture")
 public class Picture {
@@ -21,5 +21,5 @@ public class Picture {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "person_id")
-    private Person person;
+    private Offer offer;
 }

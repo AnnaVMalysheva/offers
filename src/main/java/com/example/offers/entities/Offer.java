@@ -3,7 +3,6 @@ package com.example.offers.entities;
 import lombok.*;
 
 import javax.persistence.*;
-import javax.xml.bind.annotation.XmlAttribute;
 import java.util.List;
 
 @Getter
@@ -14,7 +13,7 @@ import java.util.List;
 @AllArgsConstructor
 @Entity
 @Table(name="people")
-public class Person {
+public class Offer {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Integer id;
@@ -37,6 +36,6 @@ public class Person {
 
     @OneToMany(cascade = CascadeType.ALL,
             fetch = FetchType.LAZY,
-            mappedBy = "person")
+            mappedBy = "offer")
     private List<Picture> pictures;
 }

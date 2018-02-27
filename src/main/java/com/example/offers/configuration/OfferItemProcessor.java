@@ -1,24 +1,23 @@
 package com.example.offers.configuration;
 
-import com.example.offers.dtos.PersonDto;
+import com.example.offers.dtos.OfferDto;
 import com.example.offers.dtos.PictureDto;
-import com.example.offers.entities.Person;
+import com.example.offers.entities.Offer;
 import com.example.offers.entities.Picture;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.batch.item.ItemProcessor;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Slf4j
-public class PersonItemProcessor implements ItemProcessor<PersonDto, Person> {
+public class OfferItemProcessor implements ItemProcessor<OfferDto, Offer> {
 
 @Override
-public Person process(final PersonDto person) throws Exception {
+public Offer process(final OfferDto person) throws Exception {
     List<Picture> pictureList = new ArrayList<>();
 
-    final Person transformedPerson = Person.builder()
+    final Offer transformedOffer = Offer.builder()
             .personId(person.getId())
             .description(person.getDescription())
             .categoryId(person.getCategoryId())
@@ -27,11 +26,11 @@ public Person process(final PersonDto person) throws Exception {
             .name(person.getName()).build();
 
     for (PictureDto pictureDto: person.getPictures()){
-            pictureList.add(Picture.builder().url(pictureDto.getPicture()).person(transformedPerson).build());
+            pictureList.add(Picture.builder().url(pictureDto.getPicture()).offer(transformedOffer).build());
         }
-    transformedPerson.setPictures(pictureList);
-        log.info("Converting (" + person + ") into (" + transformedPerson + ")");
+    transformedOffer.setPictures(pictureList);
+        log.info("Converting (" + person + ") into (" + transformedOffer + ")");
 
-        return transformedPerson;
+        return transformedOffer;
         }
 }

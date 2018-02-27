@@ -26,13 +26,11 @@ public class OffersApplicationTests {
 	private MockMvc mockMvc;
 
 	@Test
-	public void doClear() throws Exception {
+	public void doOfferImport() throws Exception {
 		File file = ResourceUtils.getFile(this.getClass().getResource("/test.xml"));
 		String url = URLEncoder.encode(file.getAbsolutePath(), StandardCharsets.UTF_8.toString());
 		mockMvc.perform(get("/jobLauncher?fileurl=" + url))
-.
-				andExpect(status().isOk());
-
+				.andExpect(status().isOk());
 	}
 
 

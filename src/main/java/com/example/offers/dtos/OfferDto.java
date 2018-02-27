@@ -2,8 +2,8 @@ package com.example.offers.dtos;
 
 import lombok.*;
 
-import javax.persistence.*;
 import javax.xml.bind.annotation.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @NoArgsConstructor
@@ -14,7 +14,7 @@ import java.util.List;
 @Builder
 @XmlRootElement(name="offer")
 @XmlAccessorType(XmlAccessType.FIELD)
-public class PersonDto {
+public class OfferDto {
     @XmlAttribute(name = "id")
     private String id;
 
@@ -32,5 +32,5 @@ public class PersonDto {
     private String groupId;
 
     @XmlElement(name = "picture")
-    private List<PictureDto> pictures;
+    private List<PictureDto> pictures = new ArrayList<>();
 }
