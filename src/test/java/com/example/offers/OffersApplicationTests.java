@@ -28,8 +28,7 @@ public class OffersApplicationTests {
 	@Test
 	public void doOfferImport() throws Exception {
 		File file = ResourceUtils.getFile(this.getClass().getResource("/test.xml"));
-		String url = URLEncoder.encode(file.getAbsolutePath(), StandardCharsets.UTF_8.toString());
-		mockMvc.perform(get("/jobLauncher?fileurl=" + url))
+		mockMvc.perform(get("/jobLauncher?fileurl=" + file.getAbsolutePath()))
 				.andExpect(status().isOk());
 	}
 

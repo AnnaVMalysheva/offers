@@ -3,16 +3,16 @@ package com.example.offers.entities;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Getter
 @Setter
-
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name="people")
+@Table(name="offer")
 public class Offer {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
@@ -20,8 +20,11 @@ public class Offer {
 
     private String name;
 
-    @Column(name="person_id")
-    private String personId;
+    @Column(name="group_id")
+    private String groupId;
+
+    @Column(name="offer_id")
+    private String offerId;
 
     @Column(name="currency_id")
     private String currencyId;
@@ -37,5 +40,10 @@ public class Offer {
     @OneToMany(cascade = CascadeType.ALL,
             fetch = FetchType.LAZY,
             mappedBy = "offer")
-    private List<Picture> pictures;
+    private List<Picture> pictures = new ArrayList<>();
+
+    @OneToMany(cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY,
+            mappedBy = "offer")
+    private List<Param> params = new ArrayList<>();
 }

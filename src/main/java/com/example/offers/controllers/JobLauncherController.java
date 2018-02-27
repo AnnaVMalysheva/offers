@@ -19,14 +19,14 @@ public class JobLauncherController {
     JobLauncher jobLauncher;
 
     @Autowired
-    Job importUserJob;
+    Job importOfferJob;
 
     @GetMapping("/jobLauncher")
     public ResponseEntity<Object> handle(@RequestParam("fileurl") String fileUrl) throws Exception{
         JobParametersBuilder jobParametersBuilder = new JobParametersBuilder();
         jobParametersBuilder.addString("path", fileUrl);
         jobParametersBuilder.addDate("date", new Date());
-        jobLauncher.run(importUserJob, jobParametersBuilder.toJobParameters());
+        jobLauncher.run(importOfferJob, jobParametersBuilder.toJobParameters());
         return new ResponseEntity<>(null, HttpStatus.OK);
     }
 }

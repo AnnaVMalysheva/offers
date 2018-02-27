@@ -5,16 +5,15 @@
         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
 
         <changeSet id="01-create-students-table" author="Petri Kainulainen">
-        <createTable tableName="people">
+        <createTable tableName="offer">
             <column name="id" type="BIGINT">
                 <constraints primaryKey="true"/>
             </column>
-            <column name="person_id" type="VARCHAR(20)">
-            <constraints nullable="false"/>
-            </column>
-            <column name="category_id" type="BIGINT">
+            <column name="group_id" type="VARCHAR(20)"/>
+            <column name="offer_id" type="VARCHAR(20)">
                 <constraints nullable="false"/>
             </column>
+            <column name="category_id" type="BIGINT"/>
             <column name="currency_id" type="VARCHAR(20)">
                 <constraints nullable="false"/>
             </column>
@@ -31,17 +30,31 @@
                 <column name="id" type="BIGINT">
                     <constraints primaryKey="true"/>
                 </column>
-                <column name="person_id" type="VARCHAR(20)">
+                <column name="offer_id" type="VARCHAR(20)">
                     <constraints nullable="false"/>
                 </column>
                 <column name="url" type="VARCHAR(200)">
                     <constraints nullable="false"/>
                 </column>
             </createTable>
+            <createTable tableName="param">
+                <column name="id" type="BIGINT">
+                    <constraints primaryKey="true"/>
+                </column>
+                <column name="offer_id" type="VARCHAR(20)">
+                    <constraints nullable="false"/>
+                </column>
+                <column name="value" type="VARCHAR(200)">
+                    <constraints nullable="false"/>
+                </column>
+                <column name="name" type="VARCHAR(30)">
+                    <constraints nullable="false"/>
+                </column>
+            </createTable>
             <addForeignKeyConstraint baseTableName="picture"
-                                     baseColumnNames="person_id"
-                                     constraintName="person_fk"
-                                     referencedTableName="people"
+                                     baseColumnNames="offer_id"
+                                     constraintName="offer_fk"
+                                     referencedTableName="offer"
                                      referencedColumnNames="id"/>
     </changeSet>
 </databaseChangeLog>

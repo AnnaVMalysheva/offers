@@ -1,9 +1,13 @@
 package com.example.offers.dtos;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlValue;
 
 @NoArgsConstructor
@@ -11,7 +15,9 @@ import javax.xml.bind.annotation.XmlValue;
 @Data
 @Builder
 @XmlAccessorType(XmlAccessType.FIELD)
-public class PictureDto {
+public class ParamDto {
     @XmlValue
-    private String picture;
+    private String value;
+    @XmlAttribute(name = "name")
+    private String name;
 }

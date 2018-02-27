@@ -71,7 +71,6 @@ public class OfferJobConfigTest {
         final OfferDto offerDto = new OfferDto();
         offerDto.setName("name");
         offerDto.setId("12345");
-//        offerDto.setPictures(Collections.EMPTY_LIST);
-        assertEquals(offerDto.getId(), processor.process(offerDto).getPersonId());
+        assertEquals(offerDto.getId(), processor.process(offerDto).getOfferId());
     }
 }

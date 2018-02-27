@@ -1,8 +1,10 @@
 package com.example.offers.configuration;
 
 import com.example.offers.entities.Offer;
+import com.example.offers.entities.Param;
 import com.example.offers.entities.Picture;
-import com.example.offers.repositories.PersonRepository;
+import com.example.offers.repositories.OfferRepository;
+import com.example.offers.repositories.ParamRepository;
 import com.example.offers.repositories.PictureRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.batch.core.BatchStatus;
@@ -19,10 +21,13 @@ import java.util.List;
 public class JobCompletionNotificationListener extends JobExecutionListenerSupport {
 
     @Autowired
-    PersonRepository personRepository;
+    OfferRepository offerRepository;
 
     @Autowired
     PictureRepository pictureRepository;
+
+    @Autowired
+    ParamRepository paramRepository;
 
     @Transactional
     @Override
@@ -30,12 +35,12 @@ public class JobCompletionNotificationListener extends JobExecutionListenerSuppo
         if (jobExecution.getStatus() == BatchStatus.COMPLETED) {
             log.info("!!! JOB FINISHED! Time to verify the results");
 
-            List<Offer> results = personRepository.findAll();
+            List<Offer> results = offerRepository.findAll();
             for (Offer offer : results) {
                 log.info("Found <" + offer.getId() + "> in the database.");
                 log.info("Found <" + offer.getName() + "> in the database.");
                 log.info("Found <" + offer.getDescription() + "> in the database.");
-                log.info("Found <" + offer.getPersonId() + "> in the database.");
+                log.info("Found <" + offer.getGroupId() + "> in the database.");
                 log.info("Found <" + offer.getPictures() + "> in the database.");
             }
 
@@ -44,6 +49,13 @@ public class JobCompletionNotificationListener extends JobExecutionListenerSuppo
                 log.info("Found <" + picture.getId() + "> in the database.");
                 log.info("Found <" + picture.getUrl() + "> in the database.");
                 log.info("Found <" + picture.getOffer().getId() + "> in the database.");
+            }
+
+            List<Param> params = paramRepository.findAll();
+            for (Param param: params) {
+                log.info("Found <" + param.getId() + "> in the database.");
+                log.info("Found <" + param.getValue() + "> in the database.");
+                log.info("Found <" + param.getOffer().getId() + "> in the database.");
             }
 
         }

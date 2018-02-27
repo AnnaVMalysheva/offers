@@ -8,8 +8,6 @@ import java.util.List;
 
 @NoArgsConstructor
 @AllArgsConstructor
-@Getter
-@Setter
 @Data
 @Builder
 @XmlRootElement(name="offer")
@@ -33,4 +31,6 @@ public class OfferDto {
 
     @XmlElement(name = "picture")
     private List<PictureDto> pictures = new ArrayList<>();
+    @XmlElement(name = "param")
+    private List<ParamDto> params = new ArrayList<>();
 }
