@@ -4,9 +4,9 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
 
-        <changeSet id="01-create-students-table" author="Anna Malysheva">
+        <changeSet id="01-create-offers-table" author="Anna Malysheva">
         <createTable tableName="offer">
-            <column name="id" type="BIGINT">
+            <column name="id" autoIncrement="true" type="INT">
                 <constraints primaryKey="true"/>
             </column>
             <column name="group_id" type="VARCHAR(20)"/>
@@ -18,16 +18,15 @@
                 <constraints nullable="false"/>
             </column>
             <column name="price" type="FLOAT">
-                <constraints nullable="false"/>
             </column>
-            <column name="decription" type="CLOB"/>
+            <column name="description" type="CLOB"/>
 
             <column name="name" type="VARCHAR(200)">
                 <constraints nullable="false"/>
             </column>
         </createTable>
             <createTable tableName="picture">
-                <column name="id" type="BIGINT">
+                <column name="id" autoIncrement="true" type="INT">
                     <constraints primaryKey="true"/>
                 </column>
                 <column name="offer_id" type="VARCHAR(20)">
@@ -38,7 +37,7 @@
                 </column>
             </createTable>
             <createTable tableName="param">
-                <column name="id" type="BIGINT">
+                <column name="id" autoIncrement="true" type="INT">
                     <constraints primaryKey="true"/>
                 </column>
                 <column name="offer_id" type="VARCHAR(20)">

@@ -13,7 +13,7 @@ import javax.persistence.*;
 @Table(name="param")
 public class Param {
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Integer id;
     private String value;
     private String name;
