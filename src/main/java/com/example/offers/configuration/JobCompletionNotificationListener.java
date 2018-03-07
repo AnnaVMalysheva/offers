@@ -1,6 +1,7 @@
 package com.example.offers.configuration;
 
 import com.example.offers.entities.Offer;
+import com.example.offers.entities.OfferVariation;
 import com.example.offers.entities.Param;
 import com.example.offers.entities.Picture;
 import com.example.offers.repositories.OfferRepository;
@@ -12,7 +13,6 @@ import org.springframework.batch.core.JobExecution;
 import org.springframework.batch.core.listener.JobExecutionListenerSupport;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -39,7 +39,6 @@ public class JobCompletionNotificationListener extends JobExecutionListenerSuppo
                 log.info("Found <" + offer.getId() + "> in the database.");
                 log.info("Found <" + offer.getName() + "> in the database.");
                 log.info("Found <" + offer.getDescription() + "> in the database.");
-                log.info("Found <" + offer.getGroupId() + "> in the database.");
                 log.info("Found <" + offer.getPictures() + "> in the database.");
             }
 

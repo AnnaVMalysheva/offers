@@ -2,6 +2,7 @@ package com.example.offers.configuration;
 
 import com.example.offers.dtos.OfferDto;
 import com.example.offers.entities.Offer;
+import com.example.offers.entities.OfferVariation;
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.Step;
 import org.springframework.batch.core.configuration.annotation.EnableBatchProcessing;
@@ -50,8 +51,8 @@ public class BatchConfiguration {
 
 
     @Bean
-    public OfferItemWriter writer() {
-        return new OfferItemWriter();
+    public OfferVariationItemWriter writer() {
+        return new OfferVariationItemWriter();
     }
 
     @Bean
@@ -72,7 +73,7 @@ public class BatchConfiguration {
     @Bean
     public Step step1() {
         return stepBuilderFactory.get("step1")
-                .<OfferDto, Offer> chunk(10)
+                .<OfferDto, OfferVariation> chunk(10)
                 .reader(reader(OVERRIDDEN_BY_EXPRESSION))
                 .processor(processor())
                 .writer(writer())

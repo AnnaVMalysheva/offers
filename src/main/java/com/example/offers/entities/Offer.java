@@ -8,10 +8,10 @@ import java.util.List;
 
 @Getter
 @Setter
-@Builder
 @NoArgsConstructor
-@AllArgsConstructor
 @Entity
+@Inheritance
+@DiscriminatorColumn
 @Table(name="offer")
 public class Offer {
     @Id
@@ -19,9 +19,6 @@ public class Offer {
     private Integer id;
 
     private String name;
-
-    @Column(name="group_id")
-    private String groupId;
 
     @Column(name="offer_id")
     private String offerId;
@@ -46,4 +43,5 @@ public class Offer {
             fetch = FetchType.LAZY,
             mappedBy = "offer")
     private List<Param> params = new ArrayList<>();
+
 }

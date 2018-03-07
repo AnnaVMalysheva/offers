@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface OfferRepository extends JpaRepository<Offer, Integer> {
-    Offer findByOfferId(String groupId);
+    Offer findByOfferId(String offerId);
 }

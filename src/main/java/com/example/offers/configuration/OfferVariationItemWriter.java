@@ -1,23 +1,23 @@
 package com.example.offers.configuration;
 
-import com.example.offers.entities.Offer;
+import com.example.offers.entities.OfferVariation;
 import com.example.offers.entities.Param;
 import com.example.offers.entities.Picture;
-import com.example.offers.repositories.OfferRepository;
-import com.example.offers.repositories.ParamRepository;
-import com.example.offers.repositories.PictureRepository;
+import com.example.offers.repositories.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.batch.item.ItemWriter;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 @Slf4j
-public class OfferItemWriter implements ItemWriter<Offer> {
+public class OfferVariationItemWriter implements ItemWriter<OfferVariation> {
 
         @Autowired
         OfferRepository offerRepository;
+
+        @Autowired
+        OfferVariationRepository offerVariationRepository;
 
         @Autowired
         PictureRepository pictureRepository;
@@ -26,10 +26,12 @@ public class OfferItemWriter implements ItemWriter<Offer> {
         ParamRepository paramRepository;
 
 
+
         @Override
-        public void write(List<? extends Offer> items) throws Exception {
-            for (Offer offer : items) {
-                Offer existedOffer = offerRepository.findByOfferId(offer.getOfferId());
+        public void write(List<? extends OfferVariation> items) throws Exception {
+            for (OfferVariation offer : items) {
+
+                OfferVariation existedOffer = offerVariationRepository.findByOfferId(offer.getOfferId());
                 if (existedOffer != null) {
                     pictureRepository.delete(existedOffer.getPictures());
                     paramRepository.delete(existedOffer.getParams());
@@ -46,9 +48,9 @@ public class OfferItemWriter implements ItemWriter<Offer> {
                     for (Param param : offer.getParams()){
                         param.setOffer(existedOffer);
                     }
-                    offerRepository.save(existedOffer);
+                    offerVariationRepository.save(existedOffer);
                 } else {
-                    offerRepository.save(offer);
+                    offerVariationRepository.save(offer);
                 }
             }
 

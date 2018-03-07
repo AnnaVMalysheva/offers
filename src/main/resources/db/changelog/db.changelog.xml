@@ -5,11 +5,12 @@
         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
 
         <changeSet id="01-create-offers-table" author="Anna Malysheva">
-        <createTable tableName="offer">
+            <createTable tableName="offer">
             <column name="id" autoIncrement="true" type="INT">
                 <constraints primaryKey="true"/>
             </column>
             <column name="group_id" type="VARCHAR(20)"/>
+            <column name="dtype" type="VARCHAR(20)"/>
             <column name="offer_id" type="VARCHAR(20)">
                 <constraints nullable="false"/>
             </column>
@@ -25,11 +26,12 @@
                 <constraints nullable="false"/>
             </column>
         </createTable>
+
             <createTable tableName="picture">
                 <column name="id" autoIncrement="true" type="INT">
                     <constraints primaryKey="true"/>
                 </column>
-                <column name="offer_id" type="VARCHAR(20)">
+                <column name="offer_id" type="INT">
                     <constraints nullable="false"/>
                 </column>
                 <column name="url" type="VARCHAR(200)">
@@ -40,7 +42,7 @@
                 <column name="id" autoIncrement="true" type="INT">
                     <constraints primaryKey="true"/>
                 </column>
-                <column name="offer_id" type="VARCHAR(20)">
+                <column name="offer_id" type="INT">
                     <constraints nullable="false"/>
                 </column>
                 <column name="value" type="VARCHAR(200)">
